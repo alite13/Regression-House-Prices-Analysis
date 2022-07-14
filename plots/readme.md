@@ -10,5 +10,5 @@ These are examples of all plots generated while running the training part of the
 - Residuals vs fitted values (generated after running OLS in training mode) 
 - Residuals vs leverage (generated after running OLS in training mode)   
 - Predicted vs actual values (3 plots generated after running OLS, Robust Regression, and NN in training mode)  
-- Normal Q-Q plot (generated after running OLS in training mode)  
-- Scale location (generated after running OLS in training mode)  
+- Q-Q plot (generated after running OLS in training mode)  
+- P-P plot (generated after running OLS in training mode)  
