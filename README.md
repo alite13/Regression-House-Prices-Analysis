@@ -8,13 +8,13 @@ Scikit-learn 1.1.0 (`conda install -c conda-forge scikit-learn`)
 
 Scipy 1.8.1 (`conda install -c conda-forge scipy`)  
 
-Numpy 1.22.3 (`conda install -c conda-forge numpy`)  
+Numpy 1.23.1 (`conda install -c conda-forge numpy`)  
 
 Matplotlib 3.5.2 (`conda install -c conda-forge matplotlib`)  
 
 Seaborn 0.11.2 (`conda install -c conda-forge seaborn`)  
 
-Pandas 1.4.2 (`conda install -c conda-forge pandas`)  
+Pandas 1.4.3 (`conda install -c conda-forge pandas`)  
 
 Statsmodels 0.13.2 (`conda install -c conda-forge statsmodels`)  
 
@@ -23,8 +23,6 @@ XGBoost 1.6.1 (`conda install -c conda-forge xgboost`)
 Lightgbm 3.3.2 (`conda install -c conda-forge lightgbm`)  
 
 Tensorflow 2.3.0 (`conda install -c conda-forge tensorflow`)  
-
-Keras 2.4.3 (`conda install -c conda-forge keras`)  
 
 Keras 2.4.3 (`conda install -c conda-forge keras`)  
 
