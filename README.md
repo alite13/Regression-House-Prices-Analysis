@@ -32,11 +32,17 @@ This project is implemented using Python 3.8.5.
 
 ## Relevant Results:  
 
-| Model | Correlation Treshold |
-| --- | --- | --- |
-| Ordinary Least Squares Regressor | 77 | 0.15499 |
-| NN Regressor (Mean Absolute Error Loss) | 77 | 0.16985 
-| Ensemble (Lasso + XGBoost + LGBM) Regressor | 77 | 0.13279 |
+Model - the name of the model.  
+Correlation threshold - the lowest allowed correlation value between the target and predictor in the training dataset.  
+Input features - the number of input features to a model.  
+Influential Points - calculated points that influence the fitted values using Cook's distance.  
+Test RMSE - RMSE of the submitted predictions to Kaggle. 
+
+| Model | Correlation Threshold | Input Features | Influential Points | Test RMSE | 
+| --- | --- | --- | --- | --- |
+| Ordinary Least Squares Regressor | 0 | 77 | Removed | 0.15499 |
+| NN Regressor (Mean Absolute Error Loss) | 0 | 77 | Removed | 0.16985 
+| Ensemble (Lasso + XGBoost + LGBM) Regressor | 0 | 77 | Removed |  0.13279 |  
 
 ## Intermediate Trials:  
 
