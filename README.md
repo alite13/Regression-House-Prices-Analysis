@@ -30,7 +30,7 @@ Joblib 1.1.0 (`conda install -c anaconda joblib`)
 
 This project is implemented using Python 3.8.5.
 
-## Relevant Results:  
+## Results:  
 
 Model - the name of the model.  
 Correlation threshold - the lowest allowed correlation value between the target and predictor in the training dataset.  
@@ -42,7 +42,6 @@ Test RMSE - RMSE of the submitted predictions to Kaggle.
 | --- | --- | --- | --- | --- |
 | Ordinary Least Squares Regressor | 0 | 77 | Removed | 0.15499 |
 | NN Regressor (Mean Absolute Error Loss) | 0 | 77 | Removed | 0.16985 
-| Ensemble (Lasso + XGBoost + LGBM) Regressor | 0 | 77 | Removed |  0.13279 |  
+| Ensemble (Lasso + XGBoost + LGBM) Regressor | 0 | 77 | Removed |  0.13279 | 
 
-## Intermediate Trials:  
-
+Some intermediate experiments were also done. Those included feature engineering (new features, polynomial features, interaction terms), feature transformations, removal of outliers, and various correlations thresholds.
