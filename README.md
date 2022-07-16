@@ -47,11 +47,16 @@ Test RMSE - RMSE of the submitted predictions to Kaggle.
 ## Intermediate Results: 
 | Model | Correlation Threshold | Input Features | Influential Points | Test RMSE | 
 | --- | --- | --- | --- | --- |
+| Ordinary Least Squares Regressor | 0.1 | 59 | Removed | 0.16796 |
 | Ordinary Least Squares Regressor | 0.2 | 45 | Removed | 0.16433 |
 | Ordinary Least Squares Regressor | 0.3 | 30 | Removed | 0.16898 |
+| NN Regressor (Mean Absolute Error Loss) | 0.1 | 59 | Removed | 0.16922 | 
 | NN Regressor (Mean Absolute Error Loss) | 0.2 | 45 | Removed | 0.16379 | 
 | NN Regressor (Mean Absolute Error Loss) | 0.3 | 30 | Removed | 0.17123 | 
+| Ensemble (Lasso + XGBoost + LGBM) Regressor | 0.1 | 59 | Removed |  0.14007 |
 | Ensemble (Lasso + XGBoost + LGBM) Regressor | 0.2 | 45 | Removed |  0.14565 |
 | Ensemble (Lasso + XGBoost + LGBM) Regressor | 0.3 | 30 | Removed |  0.15597 |  
+
+## OLS Regression Intermediate Results:
 
 Some intermediate experiments were also done. Those included feature engineering (new features, polynomial features, interaction terms), feature transformations, removal of outliers, and various correlations thresholds.
