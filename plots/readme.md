@@ -6,6 +6,7 @@ These are examples of all plots generated while running the training part of the
 - Boxplot of all features
 - Histograms of all original and transformed features  
 - Interaction plots  
+- Optimal number of PCA components
 - Influential observations (generated after running OLS in training mode)  
 - Residuals vs fitted values (generated after running OLS in training mode) 
 - Residuals vs leverage (generated after running OLS in training mode)   
