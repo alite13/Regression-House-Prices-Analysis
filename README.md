@@ -30,4 +30,13 @@ Joblib 1.1.0 (`conda install -c anaconda joblib`)
 
 This project is implemented using Python 3.8.5.
 
-## Results:  
+## Relevant Results:  
+
+| Model | Correlation Treshold |
+| --- | --- | --- |
+| Ordinary Least Squares Regressor | 77 | 0.15499 |
+| NN Regressor (Mean Absolute Error Loss) | 77 | 0.16985 
+| Ensemble (Lasso + XGBoost + LGBM) Regressor | 77 | 0.13279 |
+
+## Intermediate Trials:  
+
