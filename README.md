@@ -44,4 +44,17 @@ Test RMSE - RMSE of the submitted predictions to Kaggle.
 | NN Regressor (Mean Absolute Error Loss) | 0 | 77 | Removed | 0.16985 
 | Ensemble (Lasso + XGBoost + LGBM) Regressor | 0 | 77 | Removed |  0.13279 | 
 
+## Intermediate Results: 
+| Model | Correlation Threshold | Input Features | Influential Points | Test RMSE | 
+| --- | --- | --- | --- | --- |
+| Ordinary Least Squares Regressor | 0.2 | 45 | Removed | 0.16433 |
+| NN Regressor (Mean Absolute Error Loss) | 0.2 | 45 | Removed | 0.16379 | 
+| Ensemble (Lasso + XGBoost + LGBM) Regressor | 0.2 | 45 | Removed |  0.14565 |
+
+| Model | Correlation Threshold | Input Features | Influential Points | Test RMSE | 
+| --- | --- | --- | --- | --- |
+| Ordinary Least Squares Regressor | 0.3 | 30 | Removed | 0.16898 |
+| NN Regressor (Mean Absolute Error Loss) | 0.3 | 30 | Removed | 0.17123 | 
+| Ensemble (Lasso + XGBoost + LGBM) Regressor | 0.3 | 30 | Removed |  0.15597 |  
+
 Some intermediate experiments were also done. Those included feature engineering (new features, polynomial features, interaction terms), feature transformations, removal of outliers, and various correlations thresholds.
