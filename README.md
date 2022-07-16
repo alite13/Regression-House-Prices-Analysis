@@ -58,5 +58,3 @@ Test RMSE - RMSE of the submitted predictions to Kaggle.
 | Ensemble (Lasso + XGBoost + LGBM) Regressor | 0.3 | 30 | Removed |  0.15597 |  
 
 ## OLS Regression Intermediate Results:
-
-Some intermediate experiments were also done. Those included feature engineering (new features, polynomial features, interaction terms), feature transformations, removal of outliers, and various correlations thresholds.
