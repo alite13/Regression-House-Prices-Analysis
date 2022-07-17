@@ -132,24 +132,6 @@ class InitialDataLoader():
         df1 = df[~((df < (Q1 - 1.5 * IQR)) | (df > (Q3 + 1.5 * IQR)))]
         df1 = df1.dropna()
         return df1
-        
-    """
-    def histogram_plots(self, df_old, df_new):
-        df_old_cols = df_old.columns.tolist()
-        counts = list(range(0, len(df_old_cols)))
-        sns.set(rc={"figure.figsize": (15, 180)})
-        #fig1, axes1 = plt.subplots(rows, cols)
-        fig, axes = plt.subplots(len(counts), 2)
-        fig.subplots_adjust(top = 0.98)
-        plt.suptitle('Histograms of Features', fontsize = 16)
-        for feature, i in zip(df_old_cols, counts):
-            first = sns.histplot(ax = axes[i, 0], x = df_old[feature], kde = True, bins = 30, color = 'deeppink')
-            first.set_ylabel(f"Before transformation", fontsize = 15)
-            second = sns.histplot(ax = axes[i, 1], x = df_new[feature], kde = True, bins = 30, color = 'dodgerblue')
-            second.set_ylabel(f"After transformation", fontsize = 15)
-        plt.savefig('./plots/histograms.png', facecolor = 'white', transparent = False)
-        #plt.show()
-    """
 
     def histogram_plots(self, df_old, df_new):
 
@@ -220,30 +202,6 @@ class InitialDataLoader():
         train_features_final = pd.concat([train_features1, temp], axis = 1)
         print('<<< Feature transformation applied (', train_features.shape[1],  'features ) >>>')
         return to_transform, train_features_final
-    
-    def polynomial_features(self, x_df, y, degree):
-        
-        """ Generates polynomial features up to N degree """
-        df_list = []
-        for i in range(degree):
-            n_df = np.power(x_df, degree)
-            n_df = n_df.add_suffix('^'+str(degree))
-            df_list.append(n_df)
-            degree = degree - 1
-        strn = ''
-        for i in range(len(df_list)):
-            strn += 'df_list[' + str(i) + ']' + ','
-            #strn = strn.
-            #poly_df = pd.concat([df_list[i], y], axis = 1)
-        strn.pop(-1)
-        print(strn)
-        poly_df = pd.concat([df_list[0], df_list[1], df_list[2], y], axis = 1)
-        #squared_df = np.power(x_df, 2)
-        #squared_df = squared_df.add_suffix('^2')
-        #cubed_df = np.power(x_df, 3)
-        #cubed_df = cubed_df.add_suffix('^3')
-        #new_df = pd.concat([x_df, squared_df, cubed_df, y], axis = 1)
-        return poly_df
     
     def vif_calc(self, df):
         
@@ -500,43 +458,44 @@ class InitialDataLoader():
         train_features = self.correlations(train_df, train_df['SalePrice'], 0)
         
         # Create scatter plots
-        self.scatter_plots(train_features, order = 1)
+        #self.scatter_plots(train_features, order = 1)
 
         # Create box plots
-        self.box_plots(train_features)
+        #self.box_plots(train_features)
 
         # Create a single interaction plot
-        self.interaction_plots(train_features)
+        #self.interaction_plots(train_features)
         
         # Remove outliers
-        train_features = self.outlier_removal(train_features)
+        #train_features = self.outlier_removal(train_features)
         
         # Transform features
-        train_features_old, train_features_new = self.transformation(train_features)
+        #train_features_old, train_features_new = self.transformation(train_features)
         
         # Create histograms
-        self.histogram_plots(train_features_old, train_features_new)
+        #self.histogram_plots(train_features_old, train_features_new)
         
         print('\nTraining dataset has', train_features.shape[0], 'rows and', train_features.shape[1], 'columns.\n')
         
         # Compute VIF values
         
-        vif = self.vif_calc(train_features)
+        #vif = self.vif_calc(train_features)
         #print(vif)
         
         # Compute PCA
     
         # Uncomment to perform PCA and use components as inputs to a model 
-        X = self.pca_calc(train_features.loc[:, train_features.columns != 'SalePrice'], n_comp = 25)
+        #X = self.pca_calc(train_features.loc[:, train_features.columns != 'SalePrice'], n_comp = 25)
        
-        """
+        
         # Uncomment to use best features for OLS 
-        X = train_features[['OverallQual', 'TotalBsmtSF', 'OverallQual_x_OverallCond', 'Age', 'GarageArea_x_GarageCars', 'Total_Bathrooms', 'Ground_SF', \
-        'LotArea', 'Fireplaces', '1stFlrSF', 'YearBuilt', 'BsmtFinSF1_x_BsmtFinType1^2', 'BsmtFinType1^2', 'Foundation^2', 'WoodDeckSF']]
-        """
+        X = train_features[['OverallQual', 'TotalBsmtSF']]
+        #X = train_features[['OverallQual', 'TotalBsmtSF', 'OverallQual_x_OverallCond', 'Age', 'GarageArea_x_GarageCars', 'Total_Bathrooms', 'Ground_SF', \
+        #'LotArea', 'Fireplaces', '1stFlrSF', 'YearBuilt', 'BsmtFinSF1_x_BsmtFinType1^2', 'BsmtFinType1^2', 'Foundation^2', 'WoodDeckSF']]
+        
         
         # Uncomment to use all features
-        X = train_features.loc[:, train_features.columns != 'SalePrice']
+        #X = train_features.loc[:, train_features.columns != 'SalePrice']
         y = train_features['SalePrice'] 
         
         print('<<<', X.shape[1], 'features selected to perform modeling >>>\n')
