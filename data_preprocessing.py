@@ -61,6 +61,7 @@ class InitialDataLoader():
         ax[1].set_xticklabels(ax[1].get_xticklabels(), rotation = 65, fontsize = 14)
         sns.barplot(x = list(nans_cat['col_name']), y = list(nans_cat['percent_missing']), ax = ax[1])
         fig.savefig('./plots/missing-vals.png', facecolor = 'white', transparent = False)
+        #plt.show()
         
     def scatter_plots(self, df, order):
         
@@ -85,7 +86,7 @@ class InitialDataLoader():
 
         sns.set(rc={'figure.figsize':(50, 40)})
         cols = 12
-        rows = round(df.shape[1]/cols)
+        rows = round(df.shape[1]/cols)+1
         fig, ax = plt.subplots(rows, cols)
         fig.suptitle('Box Plots of Features', fontsize = 40)
         fig.subplots_adjust(top = 0.96)
@@ -95,14 +96,15 @@ class InitialDataLoader():
         fig.savefig('./plots/boxplots.png', facecolor = 'white', transparent = False)
         #plt.show()
     
-    def correlations(self, df, y, treshold):
+    def correlations(self, df, y, threshold):
         
         """ Calculates all correlations and generates a correlation matrix """
 
         pd.options.display.float_format = "{:,.2f}".format
         corr_matrix = df.corr(method = 'pearson')
         corr_matrix = corr_matrix.unstack()
-        corr_matrix = corr_matrix[abs(corr_matrix) >= treshold]
+        corr_matrix = corr_matrix[abs(corr_matrix) >= threshold]
+        corr_matrix.sort_values(ascending = False, inplace = True)
         corr_col_names = corr_matrix['SalePrice'].index
         corr_features = df.loc[:, corr_col_names]
         train_features = pd.concat([corr_features, y], axis = 1)
@@ -452,19 +454,19 @@ class InitialDataLoader():
         train_df['BsmtFinSF1_x_BsmtFinType1_x_BsmtFinType1^2'] = train_df['BsmtFinSF1'] * train_df['BsmtFinType1'] * train_df['BsmtFinType1^2']
         train_df['(BsmtFinSF1_x_BsmtFinType1_x_BsmtFinType1^2)^2'] = train_df['BsmtFinSF1_x_BsmtFinType1_x_BsmtFinType1^2'] ** 2 
         """
-        print('<<< Feature engineering is applied >>>')
+        print('<<< Feature engineering applied >>>')
         
         # Compute correlations
         train_features = self.correlations(train_df, train_df['SalePrice'], 0)
         
         # Create scatter plots
-        #self.scatter_plots(train_features, order = 1)
+        self.scatter_plots(train_features, order = 1)
 
         # Create box plots
-        #self.box_plots(train_features)
+        self.box_plots(train_features)
 
         # Create a single interaction plot
-        #self.interaction_plots(train_features)
+        self.interaction_plots(train_features)
         
         # Remove outliers
         #train_features = self.outlier_removal(train_features)
@@ -489,7 +491,6 @@ class InitialDataLoader():
        
         
         # Uncomment to use best features for OLS 
-        X = train_features[['OverallQual', 'TotalBsmtSF']]
         #X = train_features[['OverallQual', 'TotalBsmtSF', 'OverallQual_x_OverallCond', 'Age', 'GarageArea_x_GarageCars', 'Total_Bathrooms', 'Ground_SF', \
         #'LotArea', 'Fireplaces', '1stFlrSF', 'YearBuilt', 'BsmtFinSF1_x_BsmtFinType1^2', 'BsmtFinType1^2', 'Foundation^2', 'WoodDeckSF']]
         
