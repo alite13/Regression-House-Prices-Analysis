@@ -35,7 +35,7 @@ This project is implemented using Python 3.8.5.
 Model - the name of the model.  
 Correlation threshold - the lowest allowed correlation value between the target and predictor in the training dataset.  
 Input features - the number of input features to a model.  
-Influential Points - calculated points that influence the fitted values using Cook's distance.  
+Influential Points - influential points calculated using Cook's distance.  
 Test RMSE - RMSE of the submitted predictions to Kaggle. 
 
 | Model | Correlation Threshold | Input Features | Influential Points | Test RMSE | 
