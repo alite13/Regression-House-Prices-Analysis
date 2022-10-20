@@ -56,5 +56,3 @@ Test RMSE - RMSE of the submitted predictions to Kaggle.
 | Ensemble (Lasso + XGBoost + LGBM) | 0.1 | 59 | Removed |  0.14007 |
 | Ensemble (Lasso + XGBoost + LGBM) | 0.2 | 45 | Removed |  0.14565 |
 | Ensemble (Lasso + XGBoost + LGBM) | 0.3 | 30 | Removed |  0.15597 |  
-
-## OLS Regression Intermediate Results:
